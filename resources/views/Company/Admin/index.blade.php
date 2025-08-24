@@ -1,6 +1,15 @@
 @extends('layouts.app0')
 @section('title','Kompaniyalar')
 @section('content')
+    <div class="pagetitle">
+        <h1>Kompaniyalar</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                <li class="breadcrumb-item active">Kompaniyalar</li>
+            </ol>
+        </nav>
+    </div>
     <div class="card">
         <div class="card-body">
             <h3 class="card-title">Barcha Kompaniyalar</h3>
