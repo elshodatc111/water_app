@@ -71,12 +71,12 @@
 
         @if(auth()->user()->type === 'admin')
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs(['admin_company','admin_company_show','admin_company_create','admin_company_create_store','admin_company_paymart_post','admin_company_update_image','admin_company_update','admin_company_status_update','admin_company_item','admin_company_hodim','admin_company_paymarts','admin_company_balans','admin_company_orders','admin_company_comments']) ? '' : 'collapsed' }}" data-bs-target="#company-nav" data-bs-toggle="collapse" href="javascript:void(0)">
+                <a class="nav-link {{ request()->routeIs(['admin_company','admin_company_show','admin_company_item','admin_company_hodim','admin_company_paymarts','admin_company_balans','admin_company_orders','admin_company_comments']) ? '' : 'collapsed' }}" data-bs-target="#company-nav" data-bs-toggle="collapse" href="javascript:void(0)">
                     <i class="bi bi-building"></i><span>Kompaniya</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="company-nav" class="nav-content collapse {{ request()->routeIs(['admin_company','admin_company_show','admin_company_create','admin_company_create_store','admin_company_paymart_post','admin_company_update_image','admin_company_update','admin_company_status_update','admin_company_item','admin_company_hodim','admin_company_paymarts','admin_company_balans','admin_company_orders','admin_company_comments']) ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+                <ul id="company-nav" class="nav-content collapse {{ request()->routeIs(['admin_company','admin_company_show','admin_company_item','admin_company_hodim','admin_company_paymarts','admin_company_balans','admin_company_orders','admin_company_comments']) ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{ route('admin_company') }}" class="{{ request()->routeIs(['admin_company','admin_company_show','admin_company_create_store','admin_company_paymart_post','admin_company_update_image','admin_company_update','admin_company_status_update','admin_company_item','admin_company_hodim','admin_company_paymarts','admin_company_balans','admin_company_orders','admin_company_comments']) ? 'active' : '' }}">
+                        <a href="{{ route('admin_company') }}" class="{{ request()->routeIs(['admin_company','admin_company_show','admin_company_item','admin_company_hodim','admin_company_paymarts','admin_company_balans','admin_company_orders','admin_company_comments']) ? 'active' : '' }}">
                             <i class="bi bi-circle"></i><span>Barcha kompaniyalar</span>
                         </a>
                     </li>
