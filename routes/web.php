@@ -22,7 +22,11 @@ Route::middleware('auth')->group(function () {
     Route::post('admin-company-paymart', [AdminCompanyController::class, 'paymart_store'])->name('admin_company_paymart_post');
 
     Route::get('admin-company-items/{id}', [AdminCompanyItemController::class, 'company_item'])->name('admin_company_item');
+    Route::post('admin-company-item-create', [AdminCompanyItemController::class, 'company_item_create'])->name('admin_company_item_create');
+    Route::post('admin-company-item-setstade', [AdminCompanyItemController::class, 'company_item_setstade'])->name('admin_company_item_setstade');
     Route::get('admin-company-users/{id}', [AdminCompanyItemController::class, 'company_hodim'])->name('admin_company_hodim');
+    Route::post('admin-company-hodim-setstade', [AdminCompanyItemController::class, 'company_hodim_setstade'])->name('admin_company_hodim_setstade');
+    Route::post('admin-company-hodim-creates', [AdminCompanyItemController::class, 'company_hodim_creates'])->name('admin_company_hodim_creates');
     Route::get('admin-company-paymarts/{id}', [AdminCompanyItemController::class, 'company_paymarts'])->name('admin_company_paymarts');
     Route::get('admin-company-balans-history/{id}', [AdminCompanyItemController::class, 'company_balans'])->name('admin_company_balans');
     Route::get('admin-company-item-orders/{id}', [AdminCompanyItemController::class, 'company_orders'])->name('admin_company_orders');
