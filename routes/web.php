@@ -49,6 +49,11 @@ Route::middleware('auth')->group(function () {
     Route::get('admin-company-item-comments/{id}', [AdminCompanyItemController::class, 'company_comments'])->name('admin_company_comments');
 
     Route::get('maxsulot', [MaxsulotController::class, 'index'])->name('d_maxsulot');
+    Route::post('maxsulot-create', [MaxsulotController::class, 'store'])->name('d_maxsulot_create');
+    Route::post('maxsulot-delete', [MaxsulotController::class, 'delete'])->name('d_maxsulot_delete');
+    Route::get('maxsulot-show/{id}', [MaxsulotController::class, 'show'])->name('d_maxsulot_show');
+    Route::post('maxsulot-update', [MaxsulotController::class, 'update'])->name('d_maxsulot_update');
+    Route::post('maxsulot-update-image', [MaxsulotController::class, 'updateImage'])->name('d_maxsulot_update_image');
 
     Route::get('hodim', [HodimlarController::class, 'index'])->name('d_hodim');
 
