@@ -20,7 +20,7 @@
         <div class="col-lg-4">
             <div class="card">
                 <div class="card-header text-center">
-                    <img src="{{ asset($item['image']) }}" alt="{{ $item['name'] }}" class="img-fluid rounded" style="width: 100%;max-height:250px;max-width:250px;">
+                    <img src="{{ asset($item['image']) }}" alt="{{ $item['name'] }}" style="width: 188px;height:188px">
                 </div>
                 <div class="card-body">
                     <h4 class="card-title mb-0 pb-0">{{ $item['name'] }}</h4>

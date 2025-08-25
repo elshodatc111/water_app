@@ -37,6 +37,7 @@ class MaxsulotController extends Controller{
         ]);
         return redirect()->back()->with('success', 'Mahsulot muvaffaqiyatli saqlandi!');
     }
+
     public function delete(Request $request){
         $item = CompanyItem::find($request->id);
         if (!$item) {
@@ -49,6 +50,7 @@ class MaxsulotController extends Controller{
         $item->save();
         return redirect()->back()->with('success', 'Mahsulot muvaffaqiyatli o‘chirildi!');
     }
+
     public function show($id){
         $item = CompanyItem::find($id);
         if (!$item || $item->company_id !== Auth::user()->company_id) {
@@ -56,6 +58,7 @@ class MaxsulotController extends Controller{
         }
         return view('Drektor.Maxsulotlar.show',compact('item'));
     }
+
     public function update(Request $request){
         $validated = $request->validate([
             'name'  => 'required|string|max:255',
@@ -65,6 +68,7 @@ class MaxsulotController extends Controller{
         $item->update($validated);
         return redirect()->back()->with('success', 'Mahsulot muvaffaqiyatli yangilandi!');
     }
+
     public function updateImage(DCompanyUpdateImageRequest $request){
         $data = $request->validated();
         $imagePath = null;

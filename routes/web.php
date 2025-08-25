@@ -23,6 +23,8 @@ Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login_post');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/', [HomeController::class, 'index'])->name('dashboard');
+    Route::get('/home', [HomeController::class, 'index'])->name('dashboard');
     Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 

@@ -139,7 +139,7 @@
             </li>
         @else
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs(['d_maxsulot']) ? '' : 'collapsed' }}" href="{{ route('d_maxsulot') }}">
+                <a class="nav-link {{ request()->routeIs(['d_maxsulot','d_maxsulot_show']) ? '' : 'collapsed' }}" href="{{ route('d_maxsulot') }}">
                     <i class="bi bi-cart"></i>
                     <span>Maxsulotlar</span>
                 </a>
