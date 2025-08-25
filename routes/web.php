@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Company\{
     AdminCompanyController,
@@ -9,24 +8,11 @@ use App\Http\Controllers\Company\{
     CompanyController,
     AdminProfileController,
 };
-use App\Http\Controllers\Drektor\{
-    BalansController,
-    BuyurtmalarController,
-    DStatistikaController,
-    HodimlarController,
-    MaxsulotController,
-    DProfileController,
-    SettingController,
-};
-
-Route::get('login', [AuthController::class, 'login'])->name('login');
-Route::post('post-login', [AuthController::class, 'postLogin'])->name('login_post');
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('dashboard');
     Route::get('/home', [HomeController::class, 'index'])->name('dashboard');
     Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
-    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('admin-profile', [AdminProfileController::class, 'index'])->name('admin_profile');
 
@@ -49,24 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::get('admin-company-balans-history/{id}', [AdminCompanyItemController::class, 'company_balans'])->name('admin_company_balans');
     Route::get('admin-company-item-orders/{id}', [AdminCompanyItemController::class, 'company_orders'])->name('admin_company_orders');
     Route::get('admin-company-item-comments/{id}', [AdminCompanyItemController::class, 'company_comments'])->name('admin_company_comments');
-
-    Route::get('maxsulot', [MaxsulotController::class, 'index'])->name('d_maxsulot');
-    Route::post('maxsulot-create', [MaxsulotController::class, 'store'])->name('d_maxsulot_create');
-    Route::post('maxsulot-delete', [MaxsulotController::class, 'delete'])->name('d_maxsulot_delete');
-    Route::get('maxsulot-show/{id}', [MaxsulotController::class, 'show'])->name('d_maxsulot_show');
-    Route::post('maxsulot-update', [MaxsulotController::class, 'update'])->name('d_maxsulot_update');
-    Route::post('maxsulot-update-image', [MaxsulotController::class, 'updateImage'])->name('d_maxsulot_update_image');
-
-    Route::get('hodim', [HodimlarController::class, 'index'])->name('d_hodim');
-
-    Route::get('orders', [BuyurtmalarController::class, 'index'])->name('d_order');
-
-    Route::get('balance', [BalansController::class, 'index'])->name('d_balans');
-
-    Route::get('charts', [DStatistikaController::class, 'index'])->name('d_chart');
-
-    Route::get('setting', [SettingController::class, 'index'])->name('d_setting');
-
-    Route::get('drektor-profile', [DProfileController::class, 'index'])->name('drektor_profile');
-
 });
+
+require __DIR__.'/web/auth.php';
+require __DIR__.'/web/drektor.php';
