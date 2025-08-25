@@ -37,10 +37,17 @@
                     </li>
                     <li><hr class="dropdown-divider"></li>
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <i class="bi bi-person"></i>
-                            <span>Profil</span>
-                        </a>
+                        @if(Auth()->User()->type=='admin')
+                            <a class="dropdown-item d-flex align-items-center" href="{{ route('admin_profile') }}">
+                                <i class="bi bi-person"></i>
+                                <span>Profil</span>
+                            </a>
+                        @else
+                            <a class="dropdown-item d-flex align-items-center" href="{{ route('drektor_profile') }}">
+                                <i class="bi bi-person"></i>
+                                <span>Profil</span>
+                            </a>
+                        @endif
                     </li>
                     <li><hr class="dropdown-divider"></li>
                     <li>
@@ -132,33 +139,39 @@
             </li>
         @else
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link {{ request()->routeIs(['d_maxsulot']) ? '' : 'collapsed' }}" href="{{ route('d_maxsulot') }}">
                     <i class="bi bi-cart"></i>
                     <span>Maxsulotlar</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
-                    <i class="bi bi-basket"></i>
-                    <span>Buyurtmalar</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link {{ request()->routeIs(['d_hodim']) ? '' : 'collapsed' }}" href="{{ route('d_hodim') }}">
                     <i class="bi bi-people"></i>
                     <span>Hodimlar</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link {{ request()->routeIs(['d_order']) ? '' : 'collapsed' }}" href="{{ route('d_order') }}">
+                    <i class="bi bi-basket"></i>
+                    <span>Buyurtmalar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs(['d_balans']) ? '' : 'collapsed' }}" href="{{ route('d_balans') }}">
                     <i class="bi bi-credit-card"></i>
                     <span>Balans</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link {{ request()->routeIs(['d_chart']) ? '' : 'collapsed' }}" href="{{ route('d_chart') }}">
                     <i class="bi bi-bar-chart"></i>
                     <span>Statistika</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs(['d_setting']) ? '' : 'collapsed' }}" href="{{ route('d_setting') }}">
+                    <i class="bi bi-gear"></i>
+                    <span>Sozlamalar</span>
                 </a>
             </li>
         @endif

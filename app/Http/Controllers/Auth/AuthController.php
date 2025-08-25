@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AuthController extends Controller{
 
@@ -15,15 +16,23 @@ class AuthController extends Controller{
 
     public function postLogin(Request $request): RedirectResponse{
         $request->validate([
-            'email' => 'required',
-            'password' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:6',
         ]);
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->intended('dashboard')->withSuccess('You have Successfully logged in');
+        $user = User::where('email', $request->email)->first();
+        if (!$user || !Auth::attempt($request->only('email', 'password'))) {
+            return redirect()->route('login')->withError('Email yoki parol xato.');
         }
-        return redirect("login")->withError('Oops! You have entered invalid credentials');
+        if ($user->status !== 'true') {
+            Auth::logout();
+            return redirect()->route('login')->withError('Sizning tizimga kirishga bloklangansiz.');
+        }
+        if (in_array($user->type, ['user', 'currer'])) {
+            Auth::logout();
+            return redirect()->route('login')->withError('Siz tizimga kirishga ruxsat berilmagan.');
+        }
+        $request->session()->regenerate();
+        return redirect()->intended('dashboard')->withSuccess('Tizimga muvaffaqiyatli kirdingiz.');
     }
 
     public function index(){

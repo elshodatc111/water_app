@@ -3,7 +3,21 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Home\HomeController;
-use App\Http\Controllers\Company\{AdminCompanyController,AdminCompanyItemController,CompanyController};
+use App\Http\Controllers\Company\{
+    AdminCompanyController,
+    AdminCompanyItemController,
+    CompanyController,
+    AdminProfileController,
+};
+use App\Http\Controllers\Drektor\{
+    BalansController,
+    BuyurtmalarController,
+    DStatistikaController,
+    HodimlarController,
+    MaxsulotController,
+    DProfileController,
+    SettingController,
+};
 
 Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login_post');
@@ -11,6 +25,8 @@ Route::post('post-login', [AuthController::class, 'postLogin'])->name('login_pos
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::get('admin-profile', [AdminProfileController::class, 'index'])->name('admin_profile');
 
     Route::get('admin-company', [AdminCompanyController::class, 'index'])->name('admin_company');
     Route::get('admin-company-show/{id}', [AdminCompanyController::class, 'show'])->name('admin_company_show');
@@ -31,5 +47,19 @@ Route::middleware('auth')->group(function () {
     Route::get('admin-company-balans-history/{id}', [AdminCompanyItemController::class, 'company_balans'])->name('admin_company_balans');
     Route::get('admin-company-item-orders/{id}', [AdminCompanyItemController::class, 'company_orders'])->name('admin_company_orders');
     Route::get('admin-company-item-comments/{id}', [AdminCompanyItemController::class, 'company_comments'])->name('admin_company_comments');
+
+    Route::get('maxsulot', [MaxsulotController::class, 'index'])->name('d_maxsulot');
+
+    Route::get('hodim', [HodimlarController::class, 'index'])->name('d_hodim');
+
+    Route::get('orders', [BuyurtmalarController::class, 'index'])->name('d_order');
+
+    Route::get('balance', [BalansController::class, 'index'])->name('d_balans');
+
+    Route::get('charts', [DStatistikaController::class, 'index'])->name('d_chart');
+
+    Route::get('setting', [SettingController::class, 'index'])->name('d_setting');
+
+    Route::get('drektor-profile', [DProfileController::class, 'index'])->name('drektor_profile');
 
 });
