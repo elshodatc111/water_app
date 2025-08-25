@@ -84,7 +84,8 @@ class AdminCompanyItemController extends Controller{
 
 
     public function company_paymarts($id){
-        return view('Company.Admin.Item.company_paymarts',compact('id'));
+        $Paymart = BalanceHistory::where('company_id',$id)->get();
+        return view('Company.Admin.Item.company_paymarts',compact('id','Paymart'));
     }
 
     public function company_balans($id){
