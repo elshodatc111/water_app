@@ -21,6 +21,8 @@ Route::middleware('auth')->group(function () {
     Route::post('maxsulot-update-image', [MaxsulotController::class, 'updateImage'])->name('d_maxsulot_update_image');
 
     Route::get('hodim', [HodimlarController::class, 'index'])->name('d_hodim');
+    Route::post('hodim-create', [HodimlarController::class, 'create'])->name('d_hodim_create');
+    Route::get('hodim-show/{id}', [HodimlarController::class, 'show'])->name('d_hodim_show');
 
     Route::get('orders', [BuyurtmalarController::class, 'index'])->name('d_order');
 

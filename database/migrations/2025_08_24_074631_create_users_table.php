@@ -11,7 +11,7 @@ return new class extends Migration{
             $table->foreignId('company_id')->nullable()->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->string('phone')->unique();
-            $table->enum('type', ['admin', 'direktor', 'currer', 'user']);
+            $table->enum('type', ['admin', 'direktor', 'meneger', 'currer', 'user']);
             $table->string('email')->nullable()->unique();
             $table->string('password')->nullable();
             $table->string('code')->nullable();
