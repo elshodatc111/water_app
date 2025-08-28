@@ -23,6 +23,8 @@ Route::middleware('auth')->group(function () {
     Route::get('hodim', [HodimlarController::class, 'index'])->name('d_hodim');
     Route::post('hodim-create', [HodimlarController::class, 'create'])->name('d_hodim_create');
     Route::get('hodim-show/{id}', [HodimlarController::class, 'show'])->name('d_hodim_show');
+    Route::post('hodim-password-update', [HodimlarController::class, 'emploes_password_update'])->name('d_hodim_password_update');
+    Route::post('hodim-emploes-update', [HodimlarController::class, 'emploes_update'])->name('d_hodim_emploes_update');
 
     Route::get('orders', [BuyurtmalarController::class, 'index'])->name('d_order');
 

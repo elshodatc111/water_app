@@ -54,7 +54,7 @@ class MaxsulotController extends Controller{
     public function show($id){
         $item = CompanyItem::find($id);
         if (!$item || $item->company_id !== Auth::user()->company_id) {
-            return redirect()->route('d_maxsulot')->with('error', 'Mahsulot topilmadi yoki sizga tegishli emas.');
+            return redirect()->route('error')->with('error', 'Mahsulot topilmadi yoki sizga tegishli emas.');
         }
         return view('Drektor.Maxsulotlar.show',compact('item'));
     }

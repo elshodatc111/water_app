@@ -13,6 +13,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('dashboard');
     Route::get('/home', [HomeController::class, 'index'])->name('dashboard');
     Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
+    Route::get('error', [HomeController::class, 'error'])->name('error');
 
     Route::get('admin-profile', [AdminProfileController::class, 'index'])->name('admin_profile');
 
