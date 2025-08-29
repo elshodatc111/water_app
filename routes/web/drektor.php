@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::get('charts', [DStatistikaController::class, 'index'])->name('d_chart');
 
     Route::get('setting', [SettingController::class, 'index'])->name('d_setting');
+    Route::post('setting-update', [SettingController::class, 'update'])->name('d_setting_update');
+    Route::post('setting-image-update', [SettingController::class, 'updateImage'])->name('d_setting_image_update');
 
     Route::get('drektor-profile', [DProfileController::class, 'index'])->name('drektor_profile');
 
