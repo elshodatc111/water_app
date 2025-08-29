@@ -28,6 +28,8 @@ Route::middleware('auth')->group(function () {
     Route::post('setting-image-update', [SettingController::class, 'updateImage'])->name('d_setting_image_update');
 
     Route::get('balance', [BalansController::class, 'index'])->name('d_balans');
+    Route::get('balance-paymart', [BalansController::class, 'paymart_history'])->name('d_balans_paymart_history');
+    Route::get('balance-order', [BalansController::class, 'order_history'])->name('d_balans_order_history');
 
     Route::get('drektor-profile', [DProfileController::class, 'index'])->name('drektor_profile');
 

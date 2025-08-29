@@ -27,13 +27,13 @@
                     <h5 class="text-success mb-1">
                         <i class="bi bi-wallet2 me-1"></i> Balans: <strong>15,205,555</strong>
                     </h5>
-                    <a href="#" class="link-secondary small">Barcha to‘lovlar</a>
+                    <a href="{{ route('d_balans_paymart_history') }}" class="link-secondary small">Barcha to‘lovlar</a>
                 </div>
                 <div class="text-end">
                     <h5 class="text-primary mb-1">
                         <i class="bi bi-cash-stack me-1"></i> Tarif narxi: <strong>150</strong>
                     </h5>
-                    <a href="#" class="link-secondary small">Barcha buyurtmalar</a>
+                    <a href="{{ route('d_balans_order_history') }}" class="link-secondary small">Balans tarixi</a>
                 </div>
             </div>
             <h6 class="fw-bold mb-3">
