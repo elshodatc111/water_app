@@ -13,7 +13,7 @@ class DCompanyItemCreateRequest extends FormRequest{
         return [
             'name' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
-            'image' => 'required|image|mimes:jpg,jpeg,png|max:1024',
+            'image' => 'required|image|mimes:jpg,jpeg,png|max:1024|dimensions:width=1080,height=1080', 
         ];
     }
 
@@ -26,6 +26,7 @@ class DCompanyItemCreateRequest extends FormRequest{
             'image.image' => 'Fayl rasm bo‘lishi kerak.',
             'image.mimes' => 'Faqat JPG yoki PNG formatiga ruxsat beriladi.',
             'image.max' => 'Rasm hajmi 1 MB dan oshmasligi kerak.',
+            'image.dimensions'    => 'Rasm o‘lchami aniq 1080x1080px bo‘lishi shart!',
         ];
     }
 }

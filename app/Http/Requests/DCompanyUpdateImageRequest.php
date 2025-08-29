@@ -12,7 +12,7 @@ class DCompanyUpdateImageRequest extends FormRequest{
     public function rules(): array{
         return [
             'id'    => 'required|integer|exists:company_items,id',
-            'image' => 'required|image|mimes:jpg,jpeg,png|max:1024',
+            'image' => 'required|image|mimes:jpg,jpeg,png|max:1024|dimensions:width=1080,height=1080',
         ];
     }
 
