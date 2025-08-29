@@ -22,7 +22,7 @@
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-header text-center">
-                                <img src="{{ asset($item['image']) }}" alt="{{ $item['name'] }}" class="img-fluid rounded" style="width: 180px;height:180px;">
+                                <img src="{{ asset($item['image']) }}" alt="{{ $item['name'] }}" class="img-fluid rounded" style="width: 216px;height:216px;">
                             </div>
                             <div class="card-body">
                                 <h4 class="card-title mb-0 pb-0">{{ $item['name'] }}</h4>
@@ -74,7 +74,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="image" class="form-label">Maxsulot rasmi (1080x1080, JPG/PNG, max 1 MB)</label>
+                            <label for="image" class="form-label">Maxsulot rasmi (1080x1080, JPG/PNG, max 512 kB)</label>
                             <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror" accept=".jpg,.jpeg,.png" required>
                             @error('image')
                                 <div class="invalid-feedback">{{ $message }}</div>

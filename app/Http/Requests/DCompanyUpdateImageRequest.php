@@ -12,7 +12,7 @@ class DCompanyUpdateImageRequest extends FormRequest{
     public function rules(): array{
         return [
             'id'    => 'required|integer|exists:company_items,id',
-            'image' => 'required|image|mimes:jpg,jpeg,png|max:1024|dimensions:width=1080,height=1080',
+            'image' => 'required|image|mimes:jpg,jpeg,png|max:512|dimensions:width=1080,height=1080',
         ];
     }
 
@@ -21,7 +21,7 @@ class DCompanyUpdateImageRequest extends FormRequest{
             'image.required'    => 'Rasm yuklanishi shart.',
             'image.image'       => 'Fayl rasm bo‘lishi kerak.',
             'image.mimes'       => 'Faqat JPG yoki PNG formatdagi fayllarga ruxsat beriladi.',
-            'image.max'         => 'Fayl hajmi 1 MB dan oshmasligi kerak.',
+            'image.max'         => 'Fayl hajmi 512 kB dan oshmasligi kerak.',
             'image.dimensions'  => 'Rasm o‘lchami aniq 1080x1080 bo‘lishi kerak.',
         ];
     }
