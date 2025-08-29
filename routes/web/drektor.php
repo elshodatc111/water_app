@@ -34,6 +34,8 @@ Route::middleware('auth')->group(function () {
     Route::get('drektor-profile', [DProfileController::class, 'index'])->name('drektor_profile');
 
     Route::get('orders', [BuyurtmalarController::class, 'index'])->name('d_order');
+    Route::get('orders-pedding', [BuyurtmalarController::class, 'index_pedding'])->name('d_order_pedding');
+    Route::get('orders-success', [BuyurtmalarController::class, 'index_success'])->name('d_order_success');
 
     Route::get('charts', [DStatistikaController::class, 'index'])->name('d_chart');
 

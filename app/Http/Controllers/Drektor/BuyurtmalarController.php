@@ -11,4 +11,13 @@ class BuyurtmalarController extends Controller{
         return view('Drektor.Buyurtmalar.index');
     }
 
+    public function index_pedding(){
+        return view('Drektor.Buyurtmalar.pedding');
+    }
+
+    public function index_success(){
+        return view('Drektor.Buyurtmalar.success');
+    }
+
+
 }

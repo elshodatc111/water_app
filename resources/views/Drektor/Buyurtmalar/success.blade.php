@@ -19,16 +19,17 @@
         <div class="card-body pt-4">
             <ul class="nav nav-tabs d-flex text-center">
                 <li class="nav-item flex-fill" role="presentation">
-                    <a href="{{ route('d_order') }}" class="nav-link w-100 active" style="font-weight:700">Aktiv buyurtmalar</a>
+                    <a href="{{ route('d_order') }}" class="nav-link w-100 " style="font-weight:700">Aktiv buyurtmalar</a>
                 </li>
                 <li class="nav-item flex-fill" role="presentation">
-                    <a href="{{ route('d_order_pedding') }}" class="nav-link w-100" style="font-weight:700">Yetqazilayotgan buyurtmalar</a>
+                    <a href="{{ route('d_order_pedding') }}" class="nav-link w-100 " style="font-weight:700">Yetqazilayotgan buyurtmalar</a>
                 </li>
                 <li class="nav-item flex-fill" role="presentation">
-                    <a href="{{ route('d_order_success') }}" class="nav-link w-100" style="font-weight:700">Yakunlangan buyurtmalar</a>
+                    <a href="{{ route('d_order_success') }}" class="nav-link w-100 active" style="font-weight:700">Yakunlangan buyurtmalar</a>
                 </li>
             </ul>
             <div class="my-4">
+                
                 <div class="table-responsive">
                     <table class="table datatable table-bordered text-center">
                         <thead>
