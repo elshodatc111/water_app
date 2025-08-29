@@ -7,6 +7,7 @@ use App\Http\Controllers\Company\{
     AdminCompanyItemController,
     CompanyController,
     AdminProfileController,
+    AdminSettingController,
 };
 
 Route::middleware('auth')->group(function () {
@@ -38,6 +39,10 @@ Route::middleware('auth')->group(function () {
     Route::get('admin-company-balans-history/{id}', [AdminCompanyItemController::class, 'company_balans'])->name('admin_company_balans');
     Route::get('admin-company-item-orders/{id}', [AdminCompanyItemController::class, 'company_orders'])->name('admin_company_orders');
     Route::get('admin-company-item-comments/{id}', [AdminCompanyItemController::class, 'company_comments'])->name('admin_company_comments');
+
+    Route::get('admin-setting', [AdminSettingController::class, 'index'])->name('admin_setting');
+    Route::get('admin-setting-show/{id}', [AdminSettingController::class, 'show'])->name('admin_setting_show');
+    Route::post('admin-setting-admin-create', [AdminSettingController::class, 'store'])->name('admin_setting_admin_create');
 });
 
 require __DIR__.'/web/auth.php';

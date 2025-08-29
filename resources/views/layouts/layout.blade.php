@@ -37,17 +37,10 @@
                     </li>
                     <li><hr class="dropdown-divider"></li>
                     <li>
-                        @if(Auth()->User()->type=='admin')
-                            <a class="dropdown-item d-flex align-items-center" href="{{ route('admin_profile') }}">
-                                <i class="bi bi-person"></i>
-                                <span>Profil</span>
-                            </a>
-                        @else
-                            <a class="dropdown-item d-flex align-items-center" href="{{ route('drektor_profile') }}">
-                                <i class="bi bi-person"></i>
-                                <span>Profil</span>
-                            </a>
-                        @endif
+                        <a class="dropdown-item d-flex align-items-center" href="{{ route('admin_profile') }}">
+                            <i class="bi bi-person"></i>
+                            <span>Profil</span>
+                        </a>
                     </li>
                     <li><hr class="dropdown-divider"></li>
                     <li>
@@ -78,10 +71,10 @@
 
         @if(auth()->user()->type === 'admin')
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs(['admin_company','admin_company_show','admin_company_item','admin_company_hodim','admin_company_paymarts','admin_company_balans','admin_company_orders','admin_company_comments']) ? '' : 'collapsed' }}" data-bs-target="#company-nav" data-bs-toggle="collapse" href="javascript:void(0)">
+                <a class="nav-link {{ request()->routeIs(['admin_company','admin_company_create','admin_company_show','admin_company_item','admin_company_hodim','admin_company_paymarts','admin_company_balans','admin_company_orders','admin_company_comments']) ? '' : 'collapsed' }}" data-bs-target="#company-nav" data-bs-toggle="collapse" href="javascript:void(0)">
                     <i class="bi bi-building"></i><span>Kompaniya</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="company-nav" class="nav-content collapse {{ request()->routeIs(['admin_company','admin_company_show','admin_company_item','admin_company_hodim','admin_company_paymarts','admin_company_balans','admin_company_orders','admin_company_comments']) ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+                <ul id="company-nav" class="nav-content collapse {{ request()->routeIs(['admin_company','admin_company_create','admin_company_show','admin_company_item','admin_company_hodim','admin_company_paymarts','admin_company_balans','admin_company_orders','admin_company_comments']) ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
                     <li>
                         <a href="{{ route('admin_company') }}" class="{{ request()->routeIs(['admin_company','admin_company_show','admin_company_item','admin_company_hodim','admin_company_paymarts','admin_company_balans','admin_company_orders','admin_company_comments']) ? 'active' : '' }}">
                             <i class="bi bi-circle"></i><span>Barcha kompaniyalar</span>
@@ -132,7 +125,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link {{ request()->routeIs(['admin_setting','admin_setting_show']) ? '' : 'collapsed' }}" href="{{ route('admin_setting') }}">
                     <i class="bi bi-gear"></i>
                     <span>Sozlamalar</span>
                 </a>
