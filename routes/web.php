@@ -16,6 +16,8 @@ Route::middleware('auth')->group(function () {
     Route::get('error', [HomeController::class, 'error'])->name('error');
 
     Route::get('admin-profile', [AdminProfileController::class, 'index'])->name('admin_profile');
+    Route::post('admin-profile-update', [AdminProfileController::class, 'update'])->name('admin_profile_update');
+    Route::post('admin-profile-update-password', [AdminProfileController::class, 'update_password'])->name('admin_profile_update_password');
 
     Route::get('admin-company', [AdminCompanyController::class, 'index'])->name('admin_company');
     Route::get('admin-company-show/{id}', [AdminCompanyController::class, 'show'])->name('admin_company_show');

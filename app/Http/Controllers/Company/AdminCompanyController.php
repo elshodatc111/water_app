@@ -84,8 +84,7 @@ class AdminCompanyController extends Controller
         }
     }
 
-    public function show($id)
-    {
+    public function show($id){
         $Company = Company::findOrFail($id);
         return view('Company.Admin.show', compact('Company'));
     }
@@ -104,8 +103,7 @@ class AdminCompanyController extends Controller
         return redirect()->route('admin_company_show', $request->id)->with('success', 'Rasm muvaffaqiyatli yangilandi!');
     }
 
-    public function update(CompanyUpdateRequest $request)
-    {
+    public function update(CompanyUpdateRequest $request){
         $data = $request->validated();
         $company = Company::findOrFail($data['id']);
         $company->update($data);
@@ -113,12 +111,21 @@ class AdminCompanyController extends Controller
         return redirect()->route('admin_company_show', $company->id)->with('success', 'Kompaniya muvaffaqiyatli yangilandi!');
     }
 
-    public function toggleStatus(Request $request)
-    {
+    public function toggleStatus(Request $request){
         $company = Company::findOrFail($request->id);
-        $company->status = $company->status === 'true' ? 'false' : 'true';
+        $company->status = $company->status == 'true' ? 'false' : 'true';
         $company->save();
-
+        $users = User::where('company_id', $request->id)->whereNotIn('type', ['admin', 'user'])->get();
+        foreach ($users as $user) {
+            if ($company->status == 'true') {
+                if ($user->type == 'direktor') {
+                    $user->status = true;
+                }
+            } else {
+                $user->status = 'false';
+            }
+            $user->save();
+        }
         return redirect()->back()->with('success', 'Kompaniya statusi yangilandi!');
     }
 
