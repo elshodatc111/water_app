@@ -52,7 +52,7 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td><a href="">sadasds</a></td>
+                            <td><a href="{{ route('d_order_show',1) }}">Buyurtma haqida</a></td>
                             <td>9960</td>
                             <td>2005/02/11</td>
                         </tr>

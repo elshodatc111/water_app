@@ -19,5 +19,9 @@ class BuyurtmalarController extends Controller{
         return view('Drektor.Buyurtmalar.success');
     }
 
+    public function show($id){
+        return view('Drektor.Buyurtmalar.show');
+    }
+
 
 }

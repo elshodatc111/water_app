@@ -43,7 +43,7 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td></td>
+                                <td><a href="{{ route('d_order_show',1) }}">Buyurtma haqida</a></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>

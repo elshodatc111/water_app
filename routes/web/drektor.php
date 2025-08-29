@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::get('orders', [BuyurtmalarController::class, 'index'])->name('d_order');
     Route::get('orders-pedding', [BuyurtmalarController::class, 'index_pedding'])->name('d_order_pedding');
     Route::get('orders-success', [BuyurtmalarController::class, 'index_success'])->name('d_order_success');
+    Route::get('orders-show/{id}', [BuyurtmalarController::class, 'show'])->name('d_order_show');
 
     Route::get('charts', [DStatistikaController::class, 'index'])->name('d_chart');
 

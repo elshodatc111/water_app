@@ -29,7 +29,7 @@
                 </li>
             </ul>
             <div class="my-4">
-                
+
                 <div class="table-responsive">
                     <table class="table datatable table-bordered text-center">
                         <thead>
@@ -44,7 +44,7 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td></td>
+                                <td><a href="{{ route('d_order_show',1) }}">Buyurtma haqida</a></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
